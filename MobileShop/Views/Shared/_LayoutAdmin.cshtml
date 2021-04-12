@@ -38,14 +38,8 @@
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")
     @Scripts.Render("~/bundles/jqueryval")
-    <script src="@Url.Content("~/js/themxoasuaajax.js")"></script>
-    <script src="~/js/B2BAdmin.js"></script>
+    <script src="@Url.Content("~/js/themxoasuaajax.js")"></script> 
     
-    <!-- The HTML5 shim, for IE6-8 support of HTML5 elements -->
-    <!--[if lt IE 9]>
-    <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
-    <![endif]-->
-    <!-- The fav icon -->
     <link rel="shortcut icon" href="@Url.Content("~/templatebackend/")img/favicon.ico">
 </head>
 <body>
@@ -67,20 +61,6 @@
             <!-- user dropdown ends -->
             <ul class="collapse navbar-collapse nav navbar-nav top-menu">
                 <li><a href="@Url.Action("Index", "Home")"><i class="glyphicon glyphicon-globe"></i> Về trang chủ</a></li>
-                <li class="dropdown">
-                    <a href="#" data-toggle="dropdown">
-                        <i class="glyphicon glyphicon-star"></i> Chức năng <span class="caret"></span>
-                    </a>
-                    <ul class="dropdown-menu" role="menu">
-                        <li><a href="#">Action</a></li>
-                        <li><a href="#">Another action</a></li>
-                        <li><a href="#">Something else here</a></li>
-                        <li class="divider"></li>
-                        <li><a href="#">Separated link</a></li>
-                        <li class="divider"></li>
-                        <li><a href="#">One more separated link</a></li>
-                    </ul>
-                </li>
             </ul>
         </div>
     </div>
@@ -111,7 +91,7 @@
                             <li>
                                 <a href="#"><i class="glyphicon glyphicon-user red"></i><span style="font-weight: bold; color: #ff0000;"> Khu vực thành viên</span></a>
                                 <ul class="nav nav-pills nav-stacked">
-                                    <li><a href="@Url.Action("Index","Account")">Danh sách ngươi dùng</a></li>
+                                    <li><a href="@Url.Action("Index","Account")">Danh sách người dùng</a></li>
                                     <li><a href="@Url.Action("Index","Roles")">Danh sách chức vụ</a></li>
                                 </ul>
                             </li>
@@ -120,18 +100,9 @@
                                 <a href="#"><i class="glyphicon glyphicon-briefcase red"></i><span style="font-weight: bold; color: #ff0000;">Đơn hàng - Hóa đơn</span></a>
                                 <ul class="nav nav-pills nav-stacked">
                                     <li><a href="@Url.Action("Index","Donhang")">Đơn hàng của khách</a></li>
-                                    <li><a href="@Url.Action("TinhTrangGiaoHang","HopDong")">Đơn hàng của đối tác</a></li>
+                                   
                                 </ul>
                             </li>
-
-                            <li>
-                                <a href="#"><i class="glyphicon glyphicon-heart red"></i><span style="font-weight: bold; color: #ff0000;">Chăm sóc khách hàng</span></a>
-                                <ul class="nav nav-pills nav-stacked">
-                                    <li><a href="@Url.Action("Index", "Comment")">Bình luận của khách</a></li>
-                                    <li><a href="@Url.Action("Index", "Comment")">Tư vấn trực tuyến</a></li>
-                                </ul>
-                            </li>
-
                             <li>
                                 <a href="#"><i class="glyphicon glyphicon-list-alt red"></i><span style="font-weight: bold; color: #ff0000;"> Khu vực thống kê</span></a>
                                 <ul class="nav nav-pills nav-stacked">

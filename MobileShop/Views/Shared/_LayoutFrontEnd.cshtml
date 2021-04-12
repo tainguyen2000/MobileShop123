@@ -55,65 +55,34 @@
     <div class="wrapper">
         <!-- ============================================================= TOP NAVIGATION ============================================================= -->
         <nav class="top-bar animate-dropdown">
-            <div class="container">
-                <div class="col-xs-12 col-sm-6 no-margin">
-                    <ul>
-                        <li><a href="@Url.Action("Index","Home")">Trang chủ</a></li>
-                        <li class="dropdown">
-                            <a class="dropdown-toggle" data-toggle="dropdown" href="#change-colors">Giao diện</a>
-                            <ul class="dropdown-menu" role="menu">
-                                <li role="presentation"><a role="menuitem" class="changecolor green-text" tabindex="-1" href="#" title="Green color">Xanh lá</a></li>
-                                <li role="presentation"><a role="menuitem" class="changecolor blue-text" tabindex="-1" href="#" title="Blue color">Da trơi</a></li>
-                                <li role="presentation"><a role="menuitem" class="changecolor red-text" tabindex="-1" href="#" title="Red color">Đỏ</a></li>
-                                <li role="presentation"><a role="menuitem" class="changecolor orange-text" tabindex="-1" href="#" title="Orange color">Cam</a></li>
-                                <li role="presentation"><a role="menuitem" class="changecolor navy-text" tabindex="-1" href="#" title="Navy color">Chàm</a></li>
-                                <li role="presentation"><a role="menuitem" class="changecolor dark-green-text" tabindex="-1" href="#" title="Darkgreen color">Xanh đậm</a></li>
-                            </ul>
-                        </li>
-                        <li><a href="index.php?page=faq">Hương dẫn</a></li>
-                        <li><a href="@Url.Action("Thongtinnhom", "Home")">Thông tin nhóm</a></li>
-                    </ul>
-                </div><!-- /.col -->
-                <div class="col-xs-12 col-sm-6 no-margin">
-                    <ul class="right">
-                        @if (User.IsInRole("Nhân viên") || User.IsInRole("Quản trị viên"))
-                        {
-                            <li><a href="@Url.Action("Index", "Admin")">AdminCP</a></li>
-                        }
-                        @if (!Request.IsAuthenticated)
-                        {
-                            <li class="dropdown">
-                                <a class="dropdown-toggle" data-toggle="dropdown" href="#user-cp">Đăng ký</a>
-                                <ul class="dropdown-menu" role="menu">
-                                    <li role="presentation"><a role="menuitem" tabindex="-1" href="@Url.Action("Authentication", "Account")">Đăng kí làm khách hàng </a></li>
-                                    <li role="presentation"><a role="menuitem" tabindex="-1" href="@Url.Action("RegisterB2B", "Account")">Đăng ký làm nhà cung cấp</a></li>
-                                </ul>
-                            </li>
-                            <li><a href="@Url.Action("Authentication", "Account")">Đăng nhập</a></li>
-                        }
-                        else
-                        {
-                            <li class="dropdown">
-                                <a class="dropdown-toggle" data-toggle="dropdown" href="#user-cp">@User.Identity.Name</a>
-                                <ul class="dropdown-menu" role="menu">
-                                    <li role="presentation"><a role="menuitem" tabindex="-1" href="@Url.Action("Manage", "Account")">Cài đặt mật khẩu</a></li>
-                                    @if (User.IsInRole("Khách hàng") || User.IsInRole("Quản trị viên") || User.IsInRole("Nhân viên"))
-                                    {
-                                        <li role="presentation"><a role="menuitem" tabindex="-1" href="@Url.Action("EditInfo", "Account")">Thông tin cá nhân</a></li>
-                                        <li role="presentation"><a role="menuitem" tabindex="-1" href="@Url.Action("Xemdonhang", "Home", new { maKH = User.Identity.GetUserId() })">Xem đơn hàng</a></li>
-                                    }
-                                    @if (User.IsInRole("Nhà cung cấp"))
-                                    {
-                                        <li role="presentation"><a role="menuitem" tabindex="-1" href="@Url.Action("Index", "Auction")">Đăng ký cung cấp sản phẩm</a></li>
-                                        <li role="presentation"><a role="menuitem" tabindex="-1" href="@Url.Action("EditNCCInfo", "Account")">Sưa thông tin</a></li>
-                                    }
-
-                                </ul>
-                            </li>
-                            <li><a href="@Url.Action("LogOut", "Account")">Đăng xuất</a></li>
-                        }
-                    </ul>
-                </div><!-- /.col -->
+            <div class="container"> 
+                 <ul class="right">
+                     @if (User.IsInRole("Nhân viên") || User.IsInRole("Quản trị viên"))
+                     {
+                         <li><a href="@Url.Action("Index", "Admin")">Quản Lý</a></li>
+                     }
+                     @if (!Request.IsAuthenticated)
+                     {
+                         <li> <a href="@Url.Action("Authentication", "Account")">Đăng ký</a></li>
+                        
+                         <li> <a href="@Url.Action("Authentication", "Account")">Đăng nhập</a></li>
+                     }
+                     else
+                     {
+                         <li class="dropdown">
+                             <a class="dropdown-toggle" data-toggle="dropdown" href="#user-cp">@User.Identity.Name</a>
+                             <ul class="dropdown-menu" role="menu">
+                                 <li role="presentation"><a role="menuitem" tabindex="-1" href="@Url.Action("Manage", "Account")">Cài đặt mật khẩu</a></li>
+                                 @if (User.IsInRole("Khách hàng") || User.IsInRole("Quản trị viên") || User.IsInRole("Nhân viên"))
+                                 {
+                                     <li role="presentation"><a role="menuitem" tabindex="-1" href="@Url.Action("EditInfo", "Account")">Thông tin cá nhân</a></li>
+                                     <li role="presentation"><a role="menuitem" tabindex="-1" href="@Url.Action("Xemdonhang", "Home", new { maKH = User.Identity.GetUserId() })">Xem đơn hàng</a></li>
+                                 }
+                             </ul>
+                         </li>
+                         <li><a href="@Url.Action("LogOut", "Account")">Đăng xuất</a></li>
+                     }
+                 </ul>
             </div><!-- /.container -->
         </nav><!-- /.top-bar -->
         <!-- ============================================================= TOP NAVIGATION : END ============================================================= -->
@@ -123,45 +92,7 @@
             <!-- ========================================= NAVIGATION ========================================= -->
             @Html.Action("MainMenu", "Home")
             <!-- ========================================= NAVIGATION : END ========================================= -->
-            <!--Danh dau duong di-->
-            <div class="animate-dropdown">
-                <!-- ========================================= BREADCRUMB ========================================= -->
-                <div id="breadcrumb-alt">
-                    <div class="container">
-                        <div class="breadcrumb-nav-holder minimal">
-                            <ul>
-                                @*<li class="dropdown breadcrumb-item">
-                                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                                            shop by department
-                                        </a>
-                                        <ul class="dropdown-menu">
-                                            <li><a href="#">Computer Cases &amp; Accessories</a></li>
-                                            <li><a href="#">CPUs, Processors</a></li>
-                                            <li><a href="#">Fans, Heatsinks &amp; Cooling</a></li>
-                                            <li><a href="#">Graphics, Video Cards</a></li>
-                                            <li><a href="#">Interface, Add-On Cards</a></li>
-                                            <li><a href="#">Laptop Replacement Parts</a></li>
-                                            <li><a href="#">Memory (RAM)</a></li>
-                                            <li><a href="#">Motherboards</a></li>
-                                            <li><a href="#">Motherboard &amp; CPU Combos</a></li>
-                                            <li><a href="#">Motherboard Components</a></li>
-                                        </ul>
-                                    </li>*@
-                                <li class="breadcrumb-item">
-                                    <a href="#">Trang chủ</a>
-                                </li>
-                                @*@<li class="breadcrumb-item current">
-                                        <a href="#">@ViewBag.Title</a>
-                                    </li>*@
-                                <li class="breadcrumb-item current">
-                                    <a href="#">@ViewBag.Title</a>
-                                </li>
-                            </ul>
-                        </div><!-- .breadcrumb-nav-holder -->
-                    </div><!-- /.container -->
-                </div><!-- /#breadcrumb-alt -->
-                <!-- ========================================= BREADCRUMB : END ========================================= -->
-            </div>
+            
         </header>
         <!-- ============================================================= HEADER : END ============================================================= -->
         <div>
@@ -385,50 +316,7 @@
         </footer><!-- /#footer -->
         <!-- ============================================================= FOOTER : END ============================================================= -->
     </div><!-- /.wrapper -->
-    <!-- For demo purposes – can be removed on production -->
-    @*<div class="config open">
-            <div class="config-options">
-                <h4>Pages</h4>
-                <ul class="list-unstyled animate-dropdown">
-                    <li class="dropdown">
-                        <button class="dropdown-toggle btn le-button btn-block" data-toggle="dropdown">View Pages</button>
-                        <ul class="dropdown-menu">
-                            <li><a href="index.html">Home</a></li>
-                            <li><a href="index-2.html">Home Alt</a></li>
-                            <li><a href="category-grid.html">Category - Grid/List</a></li>
-                            <li><a href="category-grid-2.html">Category 2 - Grid/List</a></li>
-                            <li><a href="single-product.html">Single Product</a></li>
-                            <li><a href="single-product-sidebar.html">Single Product with Sidebar</a></li>
-                            <li><a href="cart.html">Shopping Cart</a></li>
-                            <li><a href="checkout.html">Checkout</a></li>
-                            <li><a href="about.html">About Us</a></li>
-                            <li><a href="contact.html">Contact Us</a></li>
-                            <li><a href="blog.html">Blog</a></li>
-                            <li><a href="blog-fullwidth.html">Blog Full Width</a></li>
-                            <li><a href="blog-post.html">Blog Post</a></li>
-                            <li><a href="faq.html">FAQ</a></li>
-                            <li><a href="terms.html">Terms & Conditions</a></li>
-                            <li><a href="authentication.html">Login/Register</a></li>
-                        </ul>
-                    </li>
-                </ul>
-                <h4>Header Styles</h4>
-                <ul class="list-unstyled">
-                    <li><a href="index.html">Header 1</a></li>
-                    <li><a href="index-2.html">Header 2</a></li>
-                </ul>
-                <h4>Colors</h4>
-                <ul class="list-unstyled">
-                    <li><a class="changecolor green-text" href="#" title="Green color">Green</a></li>
-                    <li><a class="changecolor blue-text" href="#" title="Blue color">Blue</a></li>
-                    <li><a class="changecolor red-text" href="#" title="Red color">Red</a></li>
-                    <li><a class="changecolor orange-text" href="#" title="Orange color">Orange</a></li>
-                    <li><a class="changecolor navy-text" href="#" title="Navy color">Navy</a></li>
-                    <li><a class="changecolor dark-green-text" href="#" title="Darkgreen color">Dark Green</a></li>
-                </ul>
-            </div>
-            <a class="show-theme-options" href="#"><i class="fa fa-wrench"></i></a>
-        </div>*@
+    
     <!-- For demo purposes – can be removed on production : End -->
     <!-- JavaScripts placed at the end of the document so the pages load faster -->
 

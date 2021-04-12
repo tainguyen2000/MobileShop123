@@ -17,9 +17,7 @@ namespace MobileShop.Models
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public SanPham()
         {
-            this.BinhLuans = new HashSet<BinhLuan>();
             this.ChiTietDonHangs = new HashSet<ChiTietDonHang>();
-            this.HopDongNCCs = new HashSet<HopDongNCC>();
             this.SanPhamKhuyenMais = new HashSet<SanPhamKhuyenMai>();
             this.ThongSoKyThuats = new HashSet<ThongSoKyThuat>();
             this.Sanphamcanmuas = new HashSet<Sanphamcanmua>();
@@ -42,12 +40,8 @@ namespace MobileShop.Models
         public Nullable<decimal> GiaGoc { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<BinhLuan> BinhLuans { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<ChiTietDonHang> ChiTietDonHangs { get; set; }
         public virtual HangSanXuat HangSanXuat { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<HopDongNCC> HopDongNCCs { get; set; }
         public virtual LoaiSP LoaiSP1 { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<SanPhamKhuyenMai> SanPhamKhuyenMais { get; set; }

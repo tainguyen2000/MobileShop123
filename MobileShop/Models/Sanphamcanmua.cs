@@ -14,12 +14,6 @@ namespace MobileShop.Models
     
     public partial class Sanphamcanmua
     {
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Sanphamcanmua()
-        {
-            this.DanhsachdangkisanphamNCCs = new HashSet<DanhsachdangkisanphamNCC>();
-        }
-    
         public int ID { get; set; }
         public string MaSP { get; set; }
         public Nullable<int> Soluong { get; set; }
@@ -28,7 +22,5 @@ namespace MobileShop.Models
         public string Mota { get; set; }
     
         public virtual SanPham SanPham { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<DanhsachdangkisanphamNCC> DanhsachdangkisanphamNCCs { get; set; }
     }
 }

@@ -39,7 +39,6 @@ namespace MobileShop.Models
             user = db.AspNetUsers.Find(p);
             if (user != null)
             {
-                user.Avatar = p + ".jpg";
                 db.Entry(user).State = EntityState.Modified;
                 db.SaveChanges();
             }

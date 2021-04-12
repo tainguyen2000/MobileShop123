@@ -57,30 +57,6 @@ namespace MobileShop.Controllers
             catch (Exception e) { return Request.CreateResponse(HttpStatusCode.NotFound); }
         }
 
-        
-        [HttpPost]
-        [Route("api/orders/start_shipping")]
-        [IdentityAuthentication(true)]
-        public HttpResponseMessage Xacnhangiaohang([FromBody]Shipping param)
-        {
-            try
-            {
-                var maNcc = from p in db.Oauths where p.Consumer_key == param.supplier_key select new { MaNCC = p.MaNCC };
-                string MaNCC = maNcc.ToList()[0].MaNCC;
-                HopDongNCC hopdong = db.HopDongNCCs.Where(m => m.MaHD == param.order_id & m.MaNCC == MaNCC & m.MaSP == param.product_id).FirstOrDefault();
-                if(hopdong == null)
-                {
-                    return Request.CreateResponse(HttpStatusCode.NotFound,"Không tìm thấy dữ liệu");
-                }
-                hopdong.SLCungCap = param.product_quantity;
-                hopdong.TGGiaoHang = DateTime.Parse(param.product_date);
-                db.SaveChanges();
-                return Request.CreateResponse(HttpStatusCode.OK);
-            }
-            catch(Exception e)
-            {
-                return Request.CreateResponse(HttpStatusCode.Unauthorized);
-            }
         }
     }
 }

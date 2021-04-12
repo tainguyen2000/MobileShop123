@@ -15,7 +15,7 @@ namespace MobileShop.Models
 
         public EmailModel(string to, string sub, string bo)
         {
-            this.From = "tmdt2012j@gmail.com";
+            this.From = "riven.simulator@gmail.com";
             this.To = to;
             this.Subject = sub;
             this.Body = bo;

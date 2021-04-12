@@ -19,7 +19,7 @@ namespace MobileShop.Controllers
             return View(model);
         }
 
-        [AuthLog(Roles = "Quản trị viên,Nhân viên")]
+        [AuthLog(Roles = "Quản trị viên")]
         public ActionResult General()
         {
             GiaoDienModel dd = new GiaoDienModel();
