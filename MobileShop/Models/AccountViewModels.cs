@@ -174,8 +174,6 @@ namespace MobileShop.Models
         [Display(Name = "Địa chỉ")]
         public string DiaChi { get; set; }
 
-        [Display(Name = "Ảnh đại diện")]
-        public string Avatar { get; set; }
 
         [Display(Name = "Số CMND")]
         public string CMND { get; set; }

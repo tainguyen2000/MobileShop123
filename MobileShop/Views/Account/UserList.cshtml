@@ -10,7 +10,6 @@
             <th>
                 <input type="checkbox" onclick="toggle(this)" />
             </th>
-            <th>@Html.DisplayNameFor(model => model.First().Avatar)</th>
             <th>@Html.DisplayNameFor(model => model.First().UserName)</th>
             <th>@Html.DisplayNameFor(model => model.First().HoTen)</th>
             <th>@Html.DisplayNameFor(model => model.First().Email)</th>
@@ -26,7 +25,6 @@
                 <td>
                     <input type="checkbox" name="lstdel" value="@item.Id" />
                 </td>
-                <td><img src="@Url.Content("~/images/avatars/")@item.Avatar" width="70" height="70" /></td>
                 <td class="center">@item.UserName</td>
                 <td class="center">@item.HoTen</td>
                 <td class="center">@item.Email</td>

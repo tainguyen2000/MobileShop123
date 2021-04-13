@@ -103,7 +103,7 @@ namespace MobileShop.Controllers
         {
             if (ModelState.IsValid)
             {
-                var user = new ApplicationUser() { UserName = model.UserName, PhoneNumber = model.DienThoai, Email = model.Email, DiaChi = model.DiaChi, HoTen = model.HoTen, Avatar = "noavatar.jpg" };
+                var user = new ApplicationUser() { UserName = model.UserName, PhoneNumber = model.DienThoai, Email = model.Email, DiaChi = model.DiaChi, HoTen = model.HoTen};
 
                 var result = await UserManager.CreateAsync(user, model.Password);
                 if (result.Succeeded)
